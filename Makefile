@@ -9,7 +9,7 @@ GHDL ?= ghdl
 GHDL_OPTS ?= --workdir=$(WORK_DIR) --std=$(STD)
 
 YOSYS ?= yosys
-YOSYS_PREP_OPTS ?= -fatten
+YOSYS_PREP_OPTS ?= -flatten
 
 NETLISTSVG ?= netlistsvg
 
