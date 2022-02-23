@@ -4,33 +4,6 @@
 # 2022
 # Public Domain
 
-# Commands.
-GHDL ?= ghdl
-GHDL_OPTS ?= --workdir=$(WORK_DIR) --std=$(STD)
-
-YOSYS ?= yosys
-YOSYS_PREP_OPTS ?= -flatten
-
-NETLISTSVG ?= netlistsvg
-
-# VHDL standard (e.g. 93 or 08).
-STD ?= 08
-# Work library name.
-WORK ?= work
-
-# Sources directory.
-SOURCES_DIR ?= src
-# Library directory.
-WORK_DIR ?= work
-# Waveforms directory.
-WAVES_DIR ?= wave
-# Synthesis directory (e.g. for Verilog modules).
-SYNTH_DIR ?= synth
-# Schematics directory (e.g. for JSON and SVG files).
-SCH_DIR ?= sch
-# XREF HTML source tree directory.
-HTML_DIR ?= html
-
 # Enabled VHDL source files. By default, all .vhd[l] sources are enabled.
 # To enable only some sources, either rename them (e.g. 'x.vhd.no')
 # or redefine this variable in $(CONFIG).
@@ -41,10 +14,9 @@ SOURCES ?= $(shell find $(SOURCES_DIR) -name '*.vhd' -or -name '*.vhdl')
 # Configuration file.
 CONFIG ?= Config.makefile
 
-# This may override some of the above.
 include $(CONFIG)
 
-# Check this makefile's (and $(CONFIG)'s) configuration.
+# Check configuration.
 ifndef TOP_UNIT
     $(error "Error: no top unit specified; edit $(CONFIG)")
 endif
